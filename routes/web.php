@@ -82,6 +82,9 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/chirps/{chirp}', [ChirpController::class, 'update'])
         ->name('chirps.update');
+
+    Route::delete('/chirps/{chirp}', [ChirpController::class, 'destroy'])
+        ->name('chirps.destroy');
 });
 
 require __DIR__ . '/auth.php';

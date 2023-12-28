@@ -240,5 +240,7 @@
     "Chirp created successfully!": "¡Chirp creado exitosamente!",
     "Edit Chirp": "Editar Chirp",
     "edited": "Editado",
-    "Chiirp update seccessfully": "Chiirp editado con exito!"
+    "Chirp update seccessfully": "Chirp editado con exito!",
+    "Chirp Delete successfully": "Chirp eliminado con exito",
+    "Delete Chirp": "Eliminar Chirp"
 }
