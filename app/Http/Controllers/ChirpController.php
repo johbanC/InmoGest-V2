@@ -66,6 +66,11 @@ class ChirpController extends Controller
      */
     public function edit(Chirp $chirp)
     {
+
+        if (auth()->user()->isNot($chirp->user)) {
+            abort(403);
+        }
+
         return view('chirps.edit', [
             'chirp' => $chirp
         ]);
@@ -76,6 +81,11 @@ class ChirpController extends Controller
      */
     public function update(Request $request, Chirp $chirp)
     {
+
+        if (auth()->user()->isNot($chirp->user)) {
+            abort(403);
+        }
+
         //Creamos una variable ya con los datos validades y se enviar una variable en vez de una array para guardar
         $validated = $request->validate([
             'message' => ['required', 'min:3', 'max:255']
