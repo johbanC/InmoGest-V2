@@ -56,6 +56,13 @@
                                 <span class="text-gray-800 dark:text-gray-200">{{ $chirp->user->name}}</span>
                                 <small
                                     class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ $chirp->created_at->format('j M Y, g:i a') }}</small>
+                                <!-- Se puede crear un un IF o en este caso se crearon con un unless que hace lo contratio a un IF y se utiliza un eq
+                            y se leeria de la siguiente manera "Almenos que las fechas sean iguales cuentrasme este texto"-->
+
+                                @unless($chirp->created_at->eq($chirp->updated_at))
+                                <small class="text-sm text-gray-600 dark:text-gray-400"> &middot;
+                                    {{ __('edited') }}</small>
+                                @endunless
                             </div>
                         </div>
                         <p class="mt-4 text-lg text-gray-900 dark:text-gray-100">{{ $chirp->message }}</p>

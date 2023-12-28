@@ -6,11 +6,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 //SE ELIMINO use App\Models\Chirp;
 
-/*Aqui podemos verificar cuantas consultras estas realizado y verificar si estamos sobrecargando el sistema*/
+/*Aqui podemos verificar cuantas consultras estas realizado y verificar si estamos sobrecargando el sistema
 
 DB::listen(function ($query) {
     dump($query->sql);
 });
+*/
 
 /* Ruta original que existia
 Route::get('/', function () {
@@ -78,6 +79,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/chirps/{chirp}/edit', [ChirpController::class, 'edit'])
         ->name('chirps.edit');
+
+    Route::put('/chirps/{chirp}', [ChirpController::class, 'update'])
+        ->name('chirps.update');
 });
 
 require __DIR__ . '/auth.php';

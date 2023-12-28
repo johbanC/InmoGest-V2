@@ -76,7 +76,15 @@ class ChirpController extends Controller
      */
     public function update(Request $request, Chirp $chirp)
     {
-        //
+        //Creamos una variable ya con los datos validades y se enviar una variable en vez de una array para guardar
+        $validated = $request->validate([
+            'message' => ['required', 'min:3', 'max:255']
+        ]);
+
+        $chirp->update($validated);
+
+        return to_route('chirps.index')
+            ->with('status', __('Chiirp update seccessfully'));
     }
 
     /**

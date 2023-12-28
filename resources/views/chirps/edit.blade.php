@@ -21,8 +21,9 @@
                     @dump($errors->get('message'))
                     -->
 
-                    <form action="#" method="POST">
+                    <form action="{{ route('chirps.update', $chirp) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <textarea name="message" class="block w-full rounded-md border-gray-300 bg-white shadow-sm transition-colors duration-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-indigo-300 dark:focus:ring dark:focus:ring-indigo-200 dark:focus:ring-opacity-50" id="" cols="30" rows="3" placeholder="{{ __('What\'s on your mind?') }}">{{ old('message', $chirp->message) }} </textarea>
                         <!-- La funcion old es para que no se borre lo que se habia escrito
                             A diferencia de un input  <input type="text" value="{{ old('name') }}">-->
