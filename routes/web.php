@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 //SE ELIMINO use App\Models\Chirp;
@@ -74,6 +75,7 @@ Route::middleware('auth')->group(function () {
     });
     */
 
+    /*RUTAS PARA LOS CHIRPS*/
     Route::post('/chirps', [ChirpController::class, 'store'])
         ->name('chirps.store');
 
@@ -85,6 +87,13 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/chirps/{chirp}', [ChirpController::class, 'destroy'])
         ->name('chirps.destroy');
+
+
+    /*RUTAS DE INVENTARIO
+    Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index');
+*/
+
+    Route::get('/inventarios', [InventarioController::class, 'index'])->name('inventarios.index');
 });
 
 require __DIR__ . '/auth.php';
